@@ -13,4 +13,364 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  padding-block: 6.25rem;
+  font-family: var(--main-font, "Inter-Variable"), Arial, sans-serif;
+  background-color: #fff;
+  background-image: var(--background-image);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  padding: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem)
+    clamp(0.875rem, -1.4688rem + 10vw, 7.53125rem);
+  inline-size: var(--inline-size);
+  font-family: var(--accent-font, "PressStart2P"), fantasy;
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.logo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.header-title {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  font-weight: var(--bold-font-weight);
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.header-subtitle {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  font-weight: var(--regular-font-weight);
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.content {
+  display: grid;
+  justify-self: center;
+  grid-template-columns: 1fr;
+  gap: 3.125rem;
+  inline-size: var(--inline-size);
+  margin: 6.25rem 0 3.125rem;
+}
+
+.article-title {
+  font-size: 1.125rem;
+  font-variation-settings: "wght" var(--bold-font-weight, 700);
+  background-color: #fff;
+  border: #000 2px solid;
+  padding: 3px 0.625rem 3px;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.watermark {
+  position: absolute;
+  top: 1.5625rem;
+  right: clamp(0.8125rem, 0.5484rem + 1.1268vw, 1.5625rem);
+  z-index: 2;
+  font-family: var(--accent-font, "PressStart2P"), fantasy;
+  font-size: 0.875rem;
+  font-weight: var(--regular-font-weight);
+  text-shadow: -1px 0 var(--text-shadow-color, #fff),
+    0 1px var(--text-shadow-color, #fff), 1px 0 var(--text-shadow-color, #fff),
+    0 -1px var(--text-shadow-color, #fff);
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+}
+
+@supports (
+  (text-stroke: 1px var(--text-shadow-color, #fff)) or
+    (-webkit-text-stroke: 1px var(--text-shadow-color, #fff))
+) {
+  .watermark {
+    -webkit-text-stroke: 1px var(--text-shadow-color, #fff);
+    text-stroke: 1px var(--text-shadow-color, #fff);
+    text-shadow: none;
+  }
+}
+
+.article-image {
+  inline-size: 100%;
+  block-size: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.brightness {
+  filter: brightness(200%);
+}
+
+.opacity {
+  filter: opacity(50%);
+}
+
+.saturate {
+  filter: saturate(150%);
+}
+
+.grayscale {
+  filter: grayscale(50%);
+}
+
+.mix {
+  filter: sepia(0.9) grayscale(50%) brightness(200%);
+}
+
+.rotate {
+  filter: hue-rotate(10deg);
+}
+
+.contrast {
+  filter: contrast(150%);
+}
+
+.sepia {
+  filter: sepia(100%);
+}
+
+.article-description {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5625rem;
+  padding: 1.4375rem;
+  font-size: 1.125rem;
+  font-variation-settings: "wght" var(--regular-font-weight, 400);
+  background-color: #fff;
+  border: #000 2px solid;
+}
+
+.like-button-wrapper {
+  display: flex;
+  justify-self: flex-end;
+  align-self: flex-end;
+  gap: 0.25rem;
+}
+
+.button-style {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #000;
+  transition: 0.3s ease;
+}
+
+.button-style::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  transform: translate(-100%);
+  transform-origin: left center;
+  transition: 0.5s ease-in-out;
+}
+
+.button-style:hover::before {
+  transform: translate(0);
+}
+
+.button-style:focus-visible {
+  box-shadow: 2px 2px 0 #000;
+  outline: none;
+}
+
+.card__icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+  max-block-size: var(--like-button-block-size);
+  transition: 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px #000 solid;
+}
+
+.card__like-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 8.125rem;
+  block-size: var(--like-button-block-size);
+  background-color: transparent;
+  border: #000 2px solid;
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  font-family: var(--accent-font, "PressStart2P"), fantasy;
+  font-size: 0.875rem;
+  line-height: 0.7875em;
+  color: var(--button-text-color);
+  mix-blend-mode: difference;
+}
+
+.contour {
+  transition-duration: 0.1s;
+}
+
+.main-body {
+  fill: var(--heart-fill-transparent);
+  transition-duration: 0.3s;
+}
+
+.core {
+  fill: var(--heart-fill-transparent);
+  transition-duration: 0.3s;
+  transition-delay: 0.03s;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon:hover .core {
+  fill: var(--heart-fill-hover);
+  transition-duration: 0.3s;
+  transition-delay: 0;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--heart-fill-hover);
+  transition-duration: 0.3s;
+  transition-delay: 0.05s;
+}
+
+.like-icon:active .core {
+  fill: var(--heart-fill-active);
+  transition-duration: 0.3s;
+  transition-delay: 0;
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart-fill-active);
+  transition-duration: 0.3s;
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-fill-active);
+  transition-duration: 0.3s;
+  transition-delay: 0;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-fill-active);
+  transition-duration: 0.3s;
+  transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-fill-active);
+  transition-duration: 0.3s;
+  transition-delay: 0.06s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-opacity 0.3s 0.3s 1 ease-in;
+}
+
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: heart-scale 0.3s 0.1s 1 ease-in;
+}
+
+.footer {
+  display: flex;
+  justify-self: center;
+  inline-size: var(--save-button-inline-size);
+  block-size: var(--save-button-block-size);
+  background-color: #fff;
+}
+
+.save-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  gap: 0.75rem;
+  inline-size: var(--save-button-inline-size);
+  block-size: var(--save-button-block-size);
+  background-color: transparent;
+}
+
+.save-sign-svg {
+  position: relative;
+  width: var(--save-sign-size);
+  height: var(--save-sign-size);
+  z-index: 1;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+.save-dialog[open] {
+  display: grid;
+  grid-template-rows: min-content;
+  grid-template-columns: auto auto;
+  align-items: center;
+  column-gap: 1.25rem;
+  row-gap: 1.875rem;
+  padding: 1.875rem;
+  max-inline-size: 22.3125rem;
+  font-family: var(--accent-font, "PressStart2P"), fantasy;
+  text-transform: uppercase;
+}
+
+.save-dialog::backdrop {
+  background-color: rgb(0, 0, 0, 0.75);
+}
+
+.modal-save-sign-svg {
+  inline-size: var(--dialog-save-sign-size);
+  block-size: var(--dialog-save-sign-size);
+}
+
+.modal-text {
+  font-size: 0.875rem;
+  font-weight: var(--regular-font-weight);
+  line-height: 1.5;
+}
+
+.modal-button {
+  grid-column: span 2;
+  background-color: transparent;
+  padding-block: 0.65625rem;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 0.86;
+  font-weight: var(--regular-font-weight);
+}
+
+@media (width <=768px) {
+  .article-title {
+    padding: 4px 0.625rem 6px;
+  }
+
+  .save-button {
+    flex-direction: column;
+  }
+
+  .save-dialog[open] {
+    padding: 1.875rem 2.4375rem;
+    max-inline-size: 21.3125rem;
+  }
 }
