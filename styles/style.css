@@ -19,6 +19,7 @@
   background-image: var(--background-image);
   background-attachment: fixed;
   background-size: cover;
+  font-variation-settings: "wght" var(--regular-font-weight, 400);
 }
 
 .header {
@@ -73,6 +74,8 @@
 
 .image-wrapper {
   position: relative;
+  border-right: 2px solid #000;
+  border-left: 2px solid #000;
 }
 
 .watermark {
@@ -99,6 +102,11 @@
     text-stroke: 1px var(--text-shadow-color, #fff);
     text-shadow: none;
   }
+}
+
+.content article {
+  display: flex;
+  flex-direction: column;
 }
 
 .article-image {
@@ -146,7 +154,6 @@
   gap: 1.5625rem;
   padding: 1.4375rem;
   font-size: 1.125rem;
-  font-variation-settings: "wght" var(--regular-font-weight, 400);
   background-color: #fff;
   border: #000 2px solid;
 }
@@ -294,7 +301,7 @@
   animation: heart-scale 0.3s 0.1s 1 ease-in;
 }
 
-.footer {
+.save-container {
   display: flex;
   justify-self: center;
   inline-size: var(--save-button-inline-size);
